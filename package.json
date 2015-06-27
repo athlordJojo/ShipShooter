@@ -7,7 +7,7 @@
     "build": "npm run build-dep && npm run build-js",
     "build-dep": "npm install",
     "build-js": "browserify app/src/*.js > app/static/js/bundle.js",
-    "watch-src": "watch 'npm run build' app/src "
+    "watch-src": "watch 'npm run build-js' app/src "
   },
   "dependencies": {
     "angular": "^1.4.1",

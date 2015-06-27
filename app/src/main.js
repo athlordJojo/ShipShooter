@@ -1,8 +1,21 @@
 'use strict';
-var angular = require('angular');
-var uiRouter = require('ui-router');
-var IndexController = require('./ui/indexController');
+require('angular');
+require('ui-router');
+var RoutingConfig = require('./config');
+var MenuController = require('./ui/menuController');
+var PlayController = require('./ui/playController');
 
 module.exports = angular
-    .module('shipShooter', [])
-    .controller('IndexController', IndexController);
+    .module('shipShooter', ['ui.router'])
+    .controller('MenuController', MenuController)
+    .controller('PlayController', PlayController)
+
+    .config(function ($stateProvider) {
+                angular.forEach(RoutingConfig, function (config, name) {
+                    console.log(name);
+                    $stateProvider.state(name, config);
+                });
+            })
+    .config(function ($urlRouterProvider) {
+                $urlRouterProvider.otherwise('/menu');
+            });

@@ -1,8 +1,9 @@
 'use strict';
-function IndexController(){
+function IndexController($state){
     var vm = this;
-    vm.clicked = function(){
+    vm.start = function(){
         console.log("clicked!");
+        $state.go('play');
     };
 
     console.log("index call");

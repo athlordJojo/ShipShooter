@@ -10,27 +10,19 @@ function GameService(InitService, GameLoopService) {
     InitService.init();
 
     service.stop = function () {
-        service.stop = false;
         document.body.removeChild(gameObjects.renderer.domElement);
+        GameLoopService.stopLoop();
     };
 
     service.start = function () {
         gameObjects = InitService.init();
         document.body.appendChild(gameObjects.renderer.domElement);
 
-
         function update(){
             console.log("update");
         }
 
         GameLoopService.startLoop(update, gameObjects);
-
-        //function render() {
-        //    requestAnimationFrame(render);
-        //    gameObjects.renderer.render(gameObjects.scene, gameObjects.camera);
-        //}
-        //
-        //render();
     };
 
     return service;

@@ -4,7 +4,6 @@ function InitService() {
     var service = {};
 
     service.init = function () {
-        console.log("init the stuff");
         var renderer = new THREE.WebGLRenderer();
         service.renderer = renderer;
 
